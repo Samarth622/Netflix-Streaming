@@ -18,10 +18,13 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(nullable = false)
     private String title;
 
+    @Column(length = 1000)
     private String description;
 
+    @Enumerated(EnumType.STRING)
     private Genre genre;
 
     private String director;
@@ -38,6 +41,7 @@ public class Movie {
 
     private String hslUrl;
 
+    @Enumerated(EnumType.STRING)
     private VideoStatus videoStatus;
 
     private LocalDateTime createdAt;
