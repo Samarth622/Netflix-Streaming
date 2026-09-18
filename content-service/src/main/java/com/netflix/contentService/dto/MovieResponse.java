@@ -1,32 +1,24 @@
-package com.netflix.contentService.model;
+package com.netflix.contentService.dto;
 
-import jakarta.persistence.*;
+import com.netflix.contentService.model.Genre;
+import com.netflix.contentService.model.VideoStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "movies")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Movie {
+@NoArgsConstructor
+public class MovieResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(nullable = false)
     private String title;
 
-    @Column(length = 1000)
     private String description;
 
-    @Enumerated(EnumType.STRING)
     private Genre genre;
 
     private String director;
@@ -43,13 +35,7 @@ public class Movie {
 
     private String hslUrl;
 
-    @Enumerated(EnumType.STRING)
     private VideoStatus videoStatus;
 
-    @CreationTimestamp
     private LocalDateTime createdAt;
-
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
-
 }
